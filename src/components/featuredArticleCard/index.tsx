@@ -9,7 +9,7 @@ export function FeaturedArticleCard() {
     <div className="border-system-border bg-system-card group hover:border-system-primary border p-5 transition-all duration-300 ease-out">
       <Image src={Lorem} alt="article thumbnail" />
 
-      <div className="px-5">
+      <div className="lg:px-5">
         <div className="mt-8 flex items-center justify-between">
           <span className="bg-system-border px-2 py-0.5 text-xs">
             Desenvolvimento web
