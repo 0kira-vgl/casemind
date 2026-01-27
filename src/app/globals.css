@@ -9,6 +9,8 @@
   --color-system-muted-color: #9da6af;
   --color-system-primary: #07b6d5;
   --color-system-primary-hover: #09778b;
+  --color-system-border: #272c35;
+  --color-system-card: #14181f;
 }
 
 @theme inline {

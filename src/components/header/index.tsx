@@ -20,15 +20,17 @@ export function Header() {
 
         <div className="bg-system-muted mx-5 my-1 flex w-px items-center justify-center" />
 
-        <Button variant="default" className="mr-5 bg-transparent">
-          <FiMoon />
-        </Button>
+        <div>
+          <Button variant="default" className="mr-5 bg-transparent">
+            <FiMoon />
+          </Button>
 
-        <Button variant="link" className="text-base text-zinc-50">
-          Entrar
-        </Button>
+          <Button variant="link" className="gap-2 text-base text-zinc-50">
+            Entrar
+          </Button>
+        </div>
 
-        <Button>Cadastrar</Button>
+        <Button className="py-5">Cadastrar</Button>
       </div>
     </div>
   );

@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 
 export function Home() {
   return (
-    <section className="w-full px-4 pt-32 pb-24">
+    <section className="w-full px-4 py-45.5">
       <div className="flex flex-col items-center">
         <div className="max-w-sm text-center">
           <h1 className="text-4xl leading-tight font-bold">
@@ -22,7 +22,7 @@ export function Home() {
         <div className="mt-10 flex w-full max-w-md flex-col gap-4">
           <Button className="py-5">Explorar Artigos</Button>
 
-          <Button className="border-system-muted hover:bg-system-primary border bg-transparent py-5 text-zinc-50 transition-all hover:text-black">
+          <Button className="border-system-muted hover:bg-system-primary border bg-transparent py-5 text-zinc-50 transition-all duration-300 ease-out hover:text-black">
             Começar a Escrever
           </Button>
         </div>
