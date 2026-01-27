@@ -1,10 +1,11 @@
 import { Header } from "@/components/header";
+import { Home } from "./home";
 
-export default function Home() {
+export default function App() {
   return (
     <div>
       <Header />
-      <h1>Case Mind</h1>
+      <Home />
     </div>
   );
 }

@@ -5,7 +5,7 @@ import { FiMoon } from "react-icons/fi";
 
 export function Header() {
   return (
-    <div className="border-b-system-muted flex h-24 items-center justify-between border-b-2 px-10 py-5">
+    <div className="border-b-system-muted flex h-24 items-center justify-between border-b px-10 py-5">
       <div>
         <Image src={Logo} alt="Image Logo" className="size-20" />
       </div>
@@ -20,7 +20,7 @@ export function Header() {
 
         <div className="bg-system-muted mx-5 my-1 flex w-px items-center justify-center" />
 
-        <Button className="mr-5 bg-transparent">
+        <Button variant="default" className="mr-5 bg-transparent">
           <FiMoon />
         </Button>
 
@@ -28,9 +28,7 @@ export function Header() {
           Entrar
         </Button>
 
-        <Button className="bg-system-primary hover:bg-system-primary-hover rounded-none text-black">
-          Cadastrar
-        </Button>
+        <Button>Cadastrar</Button>
       </div>
     </div>
   );
