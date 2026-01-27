@@ -3,7 +3,7 @@ import { CiClock2 } from "react-icons/ci";
 export function RecentArticlesCard() {
   return (
     <div className="border-system-border bg-system-card group hover:border-system-primary border p-5 transition-all duration-300 ease-out">
-      <div className="px-5">
+      <div className="lg:px-5">
         <span className="bg-system-border px-2 py-0.5 text-xs">
           Desenvolvimento web
         </span>

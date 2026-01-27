@@ -5,7 +5,7 @@ import { FiMoon } from "react-icons/fi";
 
 export function Header() {
   return (
-    <div className="border-b-system-muted flex h-24 items-center justify-between border-b px-10 py-5">
+    <div className="border-b-system-muted hidden h-24 items-center justify-between border-b px-10 py-5 lg:flex">
       <div>
         <Image src={Logo} alt="Image Logo" className="size-20" />
       </div>

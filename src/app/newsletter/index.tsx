@@ -3,7 +3,7 @@ import { MdOutlineMailOutline } from "react-icons/md";
 
 export function Newsletter() {
   return (
-    <section className="bg-system-card border-system-muted flex flex-col items-center justify-center border-y py-10">
+    <section className="bg-system-card border-system-muted flex flex-col items-center justify-center border-y px-10 py-10 lg:px-0">
       <div className="bg-system-background border-system-muted mb-2.5 border p-2">
         <MdOutlineMailOutline className="size-9 text-zinc-400" />
       </div>
@@ -13,7 +13,8 @@ export function Newsletter() {
 
         <p className="text-base">
           Receba os melhores artigos de tecnologia diretamente no seu email.{" "}
-          <br /> Sem spam, apenas conteúdo de qualidade.
+          <br className="hidden lg:flex" /> Sem spam, apenas conteúdo de
+          qualidade.
         </p>
 
         <div className="flex items-center justify-center gap-2">
