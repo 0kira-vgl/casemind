@@ -11,6 +11,7 @@
   --color-system-primary-hover: #09778b;
   --color-system-border: #272c35;
   --color-system-card: #14181f;
+  --color-system-accent: #f5993d;
 }
 
 @theme inline {

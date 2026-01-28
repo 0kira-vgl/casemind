@@ -15,7 +15,10 @@ export function Header() {
         <Link href="/" className="cursor-pointer text-base hover:underline">
           Home
         </Link>
-        <Link href="/" className="cursor-pointer text-base hover:underline">
+        <Link
+          href="/allArticles"
+          className="cursor-pointer text-base hover:underline"
+        >
           Artigos
         </Link>
 

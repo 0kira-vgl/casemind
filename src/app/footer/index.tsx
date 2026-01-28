@@ -27,9 +27,12 @@ export function Footer() {
             >
               Home
             </Link>
-            <a className="text-system-muted-color cursor-pointer hover:underline">
+            <Link
+              href="/allArticles"
+              className="text-system-muted-color cursor-pointer hover:underline"
+            >
               Artigos
-            </a>
+            </Link>
             <a className="text-system-muted-color cursor-pointer hover:underline">
               Dashboard
             </a>

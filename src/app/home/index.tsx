@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export function Home() {
   return (
@@ -20,7 +21,11 @@ export function Home() {
         </div>
 
         <div className="mt-10 flex w-full flex-col gap-4 lg:max-w-md">
-          <Button className="py-5">Explorar Artigos</Button>
+          <Button className="flex py-5">
+            <Link href="/allArticles" className="w-full">
+              Explorar Artigos
+            </Link>
+          </Button>
 
           <Button className="border-system-muted hover:bg-system-primary border bg-transparent py-5 text-zinc-50 transition-all duration-300 ease-out hover:text-black">
             Começar a Escrever

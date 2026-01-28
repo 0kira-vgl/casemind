@@ -2,10 +2,14 @@ import Image from "next/image";
 import { CiClock2, CiHeart } from "react-icons/ci";
 import Lorem from "@/assets/lorem.png";
 import { PiEye } from "react-icons/pi";
+import Link from "next/link";
 
 export function FeaturedArticleList() {
   return (
-    <div className="border-system-border bg-system-card group hover:border-system-primary border p-5 transition-all duration-300 ease-out">
+    <Link
+      href="/articleDetails"
+      className="border-system-border bg-system-card group hover:border-system-primary flex border p-5 transition-all duration-300 ease-out"
+    >
       <div className="flex">
         <Image src={Lorem} alt="article thumbnail" />
 
@@ -56,6 +60,6 @@ export function FeaturedArticleList() {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
