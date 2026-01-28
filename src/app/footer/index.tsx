@@ -1,5 +1,6 @@
 import Logo from "@/assets/icon.svg";
 import Image from "next/image";
+import Link from "next/link";
 import { FaLinkedinIn, FaGithub, FaTwitter } from "react-icons/fa6";
 
 export function Footer() {
@@ -7,7 +8,9 @@ export function Footer() {
     <footer className="bg-system-card px-10 py-16">
       <div className="flex flex-col gap-8 lg:flex-row lg:justify-between">
         <div>
-          <Image className="size-14" src={Logo} alt="MindCaseLogo" />
+          <Link href="/">
+            <Image className="size-14" src={Logo} alt="MindCaseLogo" />
+          </Link>
 
           <span className="text-system-muted-color mt-2 block text-sm">
             Seu portal de tecnologia com artigos, tutoriais
@@ -18,9 +21,12 @@ export function Footer() {
         <div className="flex justify-between gap-12 lg:justify-center lg:gap-x-20">
           <nav className="flex flex-col gap-y-2">
             <span className="text-base font-semibold">Navegação</span>
-            <a className="text-system-muted-color cursor-pointer hover:underline">
+            <Link
+              href="/"
+              className="text-system-muted-color cursor-pointer hover:underline"
+            >
               Home
-            </a>
+            </Link>
             <a className="text-system-muted-color cursor-pointer hover:underline">
               Artigos
             </a>

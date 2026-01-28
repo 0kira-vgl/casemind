@@ -2,35 +2,41 @@ import Image from "next/image";
 import Logo from "@/assets/icon.svg";
 import { Button } from "../ui/button";
 import { FiMoon } from "react-icons/fi";
+import Link from "next/link";
 
 export function Header() {
   return (
     <div className="border-b-system-muted hidden h-24 items-center justify-between border-b px-10 py-5 lg:flex">
-      <div>
+      <Link href="/">
         <Image src={Logo} alt="Image Logo" className="size-20" />
-      </div>
+      </Link>
 
-      <div className="flex">
-        <Button variant="link" className="text-base text-zinc-50">
+      <div className="flex items-center gap-3">
+        <Link href="/" className="cursor-pointer text-base hover:underline">
           Home
-        </Button>
-        <Button variant="link" className="text-base text-zinc-50">
+        </Link>
+        <Link href="/" className="cursor-pointer text-base hover:underline">
           Artigos
-        </Button>
+        </Link>
 
-        <div className="bg-system-muted mx-5 my-1 flex w-px items-center justify-center" />
+        <div className="bg-system-muted ml-5 flex h-7 w-px items-center justify-center" />
 
         <div>
-          <Button variant="default" className="mr-5 bg-transparent">
+          <Button variant="default" className="mr-3 bg-transparent">
             <FiMoon />
           </Button>
 
-          <Button variant="link" className="gap-2 text-base text-zinc-50">
+          <Link
+            href="/signIn"
+            className="cursor-pointer pr-5 text-base hover:underline"
+          >
             Entrar
-          </Button>
+          </Link>
         </div>
 
-        <Button className="py-5">Cadastrar</Button>
+        <Link href="/signUp">
+          <Button className="cursor-pointer py-5">Cadastrar</Button>
+        </Link>
       </div>
     </div>
   );
