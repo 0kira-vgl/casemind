@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { FeaturedArticleList } from "@/components/featuredArticleList";
+import { FeaturedArticleCard } from "@/components/featuredArticleCard";
 
 export default function AllArticles() {
   return (
@@ -38,7 +39,7 @@ export default function AllArticles() {
 
           <div className="flex items-center justify-between">
             <Select>
-              <SelectTrigger className="border-system-muted w-64 rounded-none text-zinc-50 outline-none">
+              <SelectTrigger className="border-system-muted w-full rounded-none text-zinc-50 outline-none lg:w-64">
                 <CiFilter className="size-4" />
                 <SelectValue placeholder="Tipo de artigo" />
               </SelectTrigger>
@@ -49,7 +50,7 @@ export default function AllArticles() {
               </SelectContent>
             </Select>
 
-            <div className="ml-5 flex gap-2.5">
+            <div className="ml-5 hidden gap-2.5 lg:flex">
               <Button
                 size="icon"
                 variant="outline"
@@ -68,19 +69,19 @@ export default function AllArticles() {
           </div>
         </div>
 
-        <div className="space-y-4">
+        <div className="hidden space-y-4 lg:block">
           <FeaturedArticleList />
           <FeaturedArticleList />
           <FeaturedArticleList />
         </div>
 
-        {/* <div className="mt-5 flex flex-col gap-y-4 lg:mt-10 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:gap-y-4">
+        <div className="mt-5 flex flex-col gap-y-4 lg:mt-10 lg:grid lg:hidden lg:grid-cols-3 lg:gap-x-6 lg:gap-y-4">
           <FeaturedArticleCard />
           <FeaturedArticleCard />
           <FeaturedArticleCard />
           <FeaturedArticleCard />
           <FeaturedArticleCard />
-        </div> */}
+        </div>
       </div>
 
       <Footer />
