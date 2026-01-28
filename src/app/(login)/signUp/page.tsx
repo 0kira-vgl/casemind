@@ -1,4 +1,4 @@
-import Logo from "@/assets/icon.svg";
+import Logo from "@/assets/logo.svg";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { CiLogin } from "react-icons/ci";

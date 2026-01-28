@@ -1,4 +1,4 @@
-import Logo from "@/assets/icon.svg";
+import Logo from "@/assets/logo.svg";
 import Image from "next/image";
 import Link from "next/link";
 import { FaLinkedinIn, FaGithub, FaTwitter } from "react-icons/fa6";

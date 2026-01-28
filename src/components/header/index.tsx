@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Logo from "@/assets/icon.svg";
+import Logo from "@/assets/logo.svg";
 import { Button } from "../ui/button";
 import { FiMoon } from "react-icons/fi";
 import Link from "next/link";
@@ -19,10 +19,10 @@ export function Header() {
           Artigos
         </Link>
 
-        <div className="bg-system-muted ml-5 flex h-7 w-px items-center justify-center" />
+        <div className="bg-system-muted ml-5 flex h-5 w-px items-center justify-center" />
 
         <div>
-          <Button variant="default" className="mr-3 bg-transparent">
+          <Button variant="default" className="mr-3 ml-0.5 bg-transparent">
             <FiMoon />
           </Button>
 
