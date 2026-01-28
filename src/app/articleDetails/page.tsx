@@ -24,11 +24,11 @@ export default function ArticleDetails() {
     <>
       <Header />
 
-      <div className="px-24">
-        <div className="py-16">
+      <div className="lg:px-24">
+        <div className="py-10 lg:py-16">
           <button
             onClick={() => router.back()}
-            className="flex cursor-pointer items-center gap-4 pb-6 font-semibold"
+            className="flex cursor-pointer items-center gap-4 px-10 pb-6 text-sm font-semibold lg:px-0 lg:text-base"
           >
             <IoArrowBackOutline className="size-5" />
             Voltar aos Artigos
@@ -37,17 +37,17 @@ export default function ArticleDetails() {
           <div className="bg-system-muted h-px w-full" />
         </div>
 
-        <div className="px-72">
-          <span className="bg-system-accent px-2 py-0.5 text-base font-medium text-black">
+        <div className="px-10 lg:px-72">
+          <span className="bg-system-accent px-2 py-0.5 text-xs font-medium text-black lg:text-base">
             Desenvolvimento web
           </span>
 
-          <div className="space-y-10 pt-20 pb-3">
-            <h1 className="line-clamp-2 text-6xl wrap-break-word">
+          <div className="space-y-5 pt-10 pb-3 lg:space-y-10 lg:pt-20">
+            <h1 className="line-clamp-2 text-2xl wrap-break-word lg:text-6xl">
               O Futuro da Inteligência Artificial em 2025
             </h1>
 
-            <p className="text-system-muted-color line-clamp-2 text-2xl font-medium wrap-break-word">
+            <p className="text-system-muted-color line-clamp-3 text-base font-medium wrap-break-word lg:line-clamp-2 lg:text-2xl">
               Explorando as tendências e inovações que moldarão o futuro da IA
               nos próximos anos.
             </p>
@@ -60,28 +60,28 @@ export default function ArticleDetails() {
 
             <div className="flex w-full items-center justify-between">
               <div className="flex flex-col pl-5">
-                <h1 className="font-medium">John Doe</h1>
+                <h1 className="text-sm font-medium lg:text-base">John Doe</h1>
 
                 <span className="text-system-muted-color flex items-center justify-center gap-x-3">
-                  <span>20/01/2026</span> •{" "}
-                  <span className="flex items-center gap-1">
+                  <span className="text-sm lg:text-base">20/01/2026</span> •{" "}
+                  <span className="hidden items-center gap-1 lg:flex">
                     <CiClock2 />
                     6min
                   </span>
                 </span>
               </div>
 
-              <div className="flex gap-x-5">
-                <CiHeart className="size-6" />
-                <CiBookmark className="size-6" />
-                <CiShare2 className="size-6" />
+              <div className="text-system-muted-color space-y-2 lg:flex lg:gap-x-5">
+                <CiHeart className="size-4 lg:size-6" />
+                <CiBookmark className="size-4 lg:size-6" />
+                <CiShare2 className="size-4 lg:size-6" />
               </div>
             </div>
           </div>
 
           <div className="bg-system-border h-px w-full" />
 
-          <div className="mt-4 flex gap-x-5">
+          <div className="mt-4 hidden gap-x-5 lg:flex">
             <span className="text-system-muted-color flex items-center gap-x-0.5 text-sm">
               <CiHeart className="size-4" />
               {""} 1 Curtidas
@@ -96,16 +96,31 @@ export default function ArticleDetails() {
             </span>
           </div>
 
-          <div className="mt-14 w-full">
+          <div className="mt-4 flex justify-between gap-x-5 lg:hidden">
+            <span className="text-system-muted-color flex items-center gap-x-0.5 text-sm">
+              <CiHeart className="size-4" />
+              {""} 1
+            </span>
+            <span className="text-system-muted-color flex items-center gap-x-0.5 text-sm">
+              <IoEyeOutline className="size-4" />
+              {""} 122
+            </span>
+            <span className="text-system-muted-color flex items-center gap-x-0.5 text-sm">
+              <BiComment className="size-4" />
+              {""} 2
+            </span>
+          </div>
+
+          <div className="mt-8 w-full lg:mt-14">
             <div className="mb-8">
               <Image
                 src={Lorem}
                 alt="Artigo Thumbnail"
-                className="aspect-video h-118.25 w-180"
+                className="aspect-video lg:h-118.25 lg:w-180"
               />
             </div>
 
-            <p className="pb-10 wrap-break-word">
+            <p className="pb-10 text-justify wrap-break-word lg:text-start">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
               porro recusandae similique neque, veniam, modi eligendi voluptates
               aperiam architecto eum ipsam? Possimus, dolor nemo? Rerum ipsum
@@ -122,16 +137,16 @@ export default function ArticleDetails() {
 
           <div className="bg-system-border h-px w-full" />
 
-          <div className="flex gap-x-5 py-8">
-            <span className="bg-system-card px-2 py-0.5 text-sm font-medium">
+          <div className="flex flex-col gap-x-5 gap-y-2 py-8 lg:block lg:gap-y-0">
+            <span className="bg-system-card rounded-full px-2 py-0.5 text-center text-sm font-medium lg:text-start">
               Desenvolvimento web
             </span>
 
-            <span className="bg-system-card px-2 py-0.5 text-sm font-medium">
+            <span className="bg-system-card rounded-full px-2 py-0.5 text-center text-sm font-medium lg:text-start">
               Inteligência Artificial
             </span>
 
-            <span className="bg-system-card px-2 py-0.5 text-sm font-medium">
+            <span className="bg-system-card rounded-full px-2 py-0.5 text-center text-sm font-medium lg:text-start">
               Desenvolvimento backend
             </span>
           </div>

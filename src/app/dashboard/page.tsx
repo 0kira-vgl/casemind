@@ -12,13 +12,14 @@ import Marie from "@/assets/marie.png";
 import Image from "next/image";
 import { FiEdit } from "react-icons/fi";
 import { AiOutlineDelete } from "react-icons/ai";
+import Link from "next/link";
 
 export default function dashboard() {
   return (
     <>
       <Header />
 
-      <div className="px-10 pb-14 lg:px-26">
+      <div className="px-10 pt-14 pb-14 lg:px-26">
         <div className="flex items-center justify-between pb-10">
           <div>
             <h1 className="text-3xl font-medium lg:text-4xl">Dashboard</h1>
@@ -32,10 +33,12 @@ export default function dashboard() {
               <GoGear className="size-5" />
               Configurações
             </button>
-            <Button className="py-5.5">
-              <FiPlus className="size-5" />
-              Novo Artigo
-            </Button>
+            <Link href="/newArticle">
+              <Button className="py-5.5">
+                <FiPlus className="size-5" />
+                Novo Artigo
+              </Button>
+            </Link>
           </div>
         </div>
 

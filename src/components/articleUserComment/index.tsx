@@ -6,13 +6,13 @@ export function ArticleUserComment() {
   return (
     <div className="border-system-muted flex h-37 flex-col border px-6">
       <div className="flex py-5">
-        <Image src={Avatar} alt="Avatar" className="size-16" />
+        <Image src={Avatar} alt="Avatar" className="size-10 lg:size-16" />
 
         <div className="flex w-full items-center justify-between">
-          <div className="flex flex-col pl-5">
-            <h1 className="text-sm font-medium">John Doe</h1>
+          <div className="flex flex-col pl-2 lg:pl-5">
+            <h1 className="text-xs font-medium lg:text-sm">John Doe</h1>
 
-            <span className="text-system-muted-color flex items-center justify-center gap-x-3 text-sm">
+            <span className="text-system-muted-color flex items-center justify-center gap-x-3 text-xs lg:text-sm">
               20/06/2026
             </span>
           </div>
