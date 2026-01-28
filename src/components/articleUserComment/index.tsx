@@ -13,7 +13,7 @@ export function ArticleUserComment() {
             <h1 className="text-sm font-medium">John Doe</h1>
 
             <span className="text-system-muted-color flex items-center justify-center gap-x-3 text-sm">
-              20/01/2026
+              20/06/2026
             </span>
           </div>
 

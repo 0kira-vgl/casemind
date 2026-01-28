@@ -12,6 +12,7 @@
   --color-system-border: #272c35;
   --color-system-card: #14181f;
   --color-system-accent: #f5993d;
+  --color-system-destructive: #ef4343;
 }
 
 @theme inline {
