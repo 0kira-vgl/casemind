@@ -12,10 +12,6 @@ export function RecentArticles() {
 
       <div className="mt-5 flex flex-col gap-y-4 lg:mt-10 lg:grid lg:grid-cols-3 lg:gap-x-6">
         <RecentArticlesCard />
-        <RecentArticlesCard />
-        <RecentArticlesCard />
-        <RecentArticlesCard />
-        <RecentArticlesCard />
       </div>
     </section>
   );

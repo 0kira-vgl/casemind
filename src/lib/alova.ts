@@ -10,6 +10,8 @@ export const alova = createAlova({
     if (typeof window !== "undefined") {
       const token = localStorage.getItem("token");
 
+      console.log({ token });
+
       if (token) {
         method.config.headers = {
           ...(method.config.headers || {}),

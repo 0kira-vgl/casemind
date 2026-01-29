@@ -12,17 +12,27 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { IoIosClose } from "react-icons/io";
+import { useRequest } from "alova/client";
+import { createNewArticles, NewArticlesProps } from "@/services/new-article";
+import { convertFileToBase64 } from "@/utils/convert-to-base64";
+import Link from "next/link";
 
 export default function NewArticle() {
+  const { send } = useRequest(
+    (data: NewArticlesProps) => createNewArticles(data),
+    { immediate: false },
+  );
   const router = useRouter();
 
-  const [resume, setResume] = useState("");
-  const [article, setArticle] = useState("");
+  const [description, setDescription] = useState("");
+  const [content, setContent] = useState("");
+  const [title, setTitle] = useState("");
+  const [image_base64, setImage_base64] = useState<File | null>(null);
 
-  const resumeMaxLength = 120;
-  const articleMaxLength = 8000;
+  const descriptionMaxLength = 120;
+  const contentMaxLength = 8000;
 
   const countWords = (text: string) => {
     return text.trim().split(/\s+/).filter(Boolean).length;
@@ -33,6 +43,28 @@ export default function NewArticle() {
     const words = countWords(text);
     const minutes = Math.ceil(words / wordsPerMinute);
     return minutes;
+  };
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (!image_base64) return;
+
+    const imageBase64 = await convertFileToBase64(image_base64);
+
+    try {
+      const data = {
+        content,
+        image_base64: imageBase64,
+        description,
+        title,
+      } satisfies NewArticlesProps;
+
+      await send(data);
+      router.push("/allArticles");
+    } catch (error) {
+      alert("erro");
+    }
   };
 
   return (
@@ -59,7 +91,10 @@ export default function NewArticle() {
             Compartilhe seu conhecimento com a comunidade
           </p>
         </div>
-        <form className="border-system-muted space-y-6 border p-10">
+        <form
+          onSubmit={handleSubmit}
+          className="border-system-muted mb-16 space-y-6 border p-10"
+        >
           <div>
             <label htmlFor="title" className="font-medium">
               Título do Artigo
@@ -69,28 +104,30 @@ export default function NewArticle() {
                 required
                 id="title"
                 placeholder="Título do Artigo"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
                 className="w-full py-2 pr-2 pl-2.5 text-left outline-none"
               />
             </div>
           </div>
 
           <div>
-            <label htmlFor="resume" className="font-medium">
+            <label htmlFor="description" className="font-medium">
               Resumo
             </label>
             <div className="bg-system-card border-system-muted mt-1.5 border">
               <textarea
                 required
-                id="resume"
+                id="description"
                 placeholder="Resumo do Artigo"
-                value={resume}
-                onChange={(e) => setResume(e.target.value)}
-                maxLength={resumeMaxLength}
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                maxLength={descriptionMaxLength}
                 className="h-24 w-full py-2 pr-2 pl-2.5 text-left outline-none"
               />
             </div>
             <span className="text-system-muted-color text-xs font-light">
-              {resume.length}/{resumeMaxLength} caracteres
+              {description.length}/{descriptionMaxLength} caracteres
             </span>
           </div>
 
@@ -112,14 +149,19 @@ export default function NewArticle() {
           </div>
 
           <div>
-            <label htmlFor="img" className="font-medium">
+            <label htmlFor="image_base64" className="font-medium">
               Imagem de Capa
             </label>
             <div className="bg-system-card border-system-muted mt-1.5 border">
               <input
                 required
-                id="img"
-                placeholder="Imagem de Capa"
+                type="file"
+                id="image_base64"
+                accept="image/*"
+                onChange={(e) => {
+                  const file = e.target.files?.[0] ?? null;
+                  setImage_base64(file);
+                }}
                 className="w-full py-2 pr-2 pl-2.5 text-left outline-none"
               />
             </div>
@@ -131,7 +173,6 @@ export default function NewArticle() {
             </label>
             <div className="mt-1.5 flex w-full gap-2">
               <input
-                required
                 id="tags"
                 placeholder="Tags"
                 className="border-system-muted bg-system-card flex-1 border px-2.5 py-2 outline-none"
@@ -157,26 +198,28 @@ export default function NewArticle() {
                 required
                 id="content"
                 placeholder="Conteúdo do Artigo"
-                value={article}
-                onChange={(e) => setArticle(e.target.value)}
-                maxLength={articleMaxLength}
+                value={content}
+                onChange={(e) => setContent(e.target.value)}
+                maxLength={contentMaxLength}
                 className="h-52 w-full py-2 pr-2 pl-2.5 text-left outline-none"
               />
             </div>
             <span className="text-system-muted-color text-xs font-light">
-              {article.length}/{articleMaxLength} caracteres •{" "}
-              {countWords(article)} palavras • {readingTime(article)} minuto
-              {readingTime(article) > 1 ? "s" : ""} de leitura
+              {content.length}/{contentMaxLength} caracteres •{" "}
+              {countWords(content)} palavras • {readingTime(content)} minuto
+              {readingTime(content) > 1 ? "s" : ""} de leitura
             </span>
           </div>
-        </form>
 
-        <div className="mt-6 flex w-full gap-2 pt-5 pb-16">
-          <Button className="h-12 flex-1">Publicar Artigo</Button>
-          <button className="border-system-muted bg-system-card h-12 cursor-pointer border px-4 text-sm">
-            Cancelar
-          </button>
-        </div>
+          <div className="mt-6 flex w-full gap-2 pt-5">
+            <Button className="h-12 flex-1">Publicar Artigo</Button>
+            <Link href="/dashboard" className="flex">
+              <button className="border-system-muted bg-system-card h-12 cursor-pointer border px-4 text-sm">
+                Cancelar
+              </button>
+            </Link>
+          </div>
+        </form>
       </div>
 
       <Footer />

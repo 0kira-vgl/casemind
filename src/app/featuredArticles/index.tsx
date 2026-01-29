@@ -1,5 +1,3 @@
-"use client";
-
 import { GoArrowRight } from "react-icons/go";
 import { FeaturedArticleCard } from "@/components/featuredArticleCard";
 import Link from "next/link";
@@ -7,9 +5,7 @@ import { useRequest } from "alova/client";
 import { ArticlesQuerys, getArticles } from "@/services/articles";
 
 export function FeaturedArticles() {
-  const { data, loading } = useRequest((input: ArticlesQuerys) =>
-    getArticles(input),
-  );
+  const { data } = useRequest((input: ArticlesQuerys) => getArticles(input));
 
   return (
     <section className="border-t-system-muted border-t px-10 py-14 lg:px-26">
