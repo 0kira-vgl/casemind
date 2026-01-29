@@ -1,3 +1,5 @@
+"use client";
+
 import Logo from "@/assets/logo.svg";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -5,8 +7,45 @@ import { CiLogin } from "react-icons/ci";
 import { Footer } from "../../footer";
 import { Header } from "@/components/header";
 import Link from "next/link";
+import { useRequest } from "alova/client";
+import { createUser } from "@/services/users-service";
+import { UserProps } from "@/types/user-types";
+import { FormEvent, useState } from "react";
 
 export default function SignUp() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordConfirm, setPasswordConfirm] = useState("");
+
+  const { send: submitForm } = useRequest(
+    (data: UserProps) => createUser(data),
+    {
+      immediate: false,
+    },
+  );
+
+  const submitClintForm = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    try {
+      if (password !== passwordConfirm) {
+        throw new Error("Senha coicidem");
+      }
+
+      const user = {
+        name,
+        email,
+        password,
+      };
+
+      await submitForm(user);
+      // toast sus
+    } catch (error) {
+      // toast err
+    }
+  };
+
   return (
     <>
       <Header />
@@ -23,15 +62,22 @@ export default function SignUp() {
           </span>
         </div>
 
-        <div className="border-system-muted w-96 space-y-4.5 border bg-transparent p-7">
+        <form
+          // onSubmit={submitClintForm}
+          onSubmit={submitClintForm}
+          className="border-system-muted w-96 space-y-4.5 border bg-transparent p-7"
+        >
           <div>
             <label htmlFor="name" className="font-medium">
               Nome
             </label>
             <div className="bg-system-card border-system-muted mt-1.5 border">
               <input
+                required
                 id="name"
                 placeholder="John Doe"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 className="w-full py-2 pr-2 pl-2.5 text-left outline-none"
               />
             </div>
@@ -42,9 +88,12 @@ export default function SignUp() {
             </label>
             <div className="bg-system-card border-system-muted mt-1.5 border">
               <input
+                required
                 id="email"
                 type="email"
+                value={email}
                 placeholder="exemplo@email.com"
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full py-2 pr-2 pl-2.5 text-left outline-none"
               />
             </div>
@@ -55,9 +104,12 @@ export default function SignUp() {
             </label>
             <div className="bg-system-card border-system-muted mt-1.5 border">
               <input
+                required
                 id="password"
                 type="password"
+                value={password}
                 placeholder="*********"
+                onChange={(e) => setPassword(e.target.value)}
                 className="w-full py-2 pr-2 pl-2.5 text-left outline-none"
               />
             </div>
@@ -69,16 +121,19 @@ export default function SignUp() {
             </label>
             <div className="bg-system-card border-system-muted mt-1.5 border">
               <input
+                required
                 id="confirmPassword"
                 type="password"
                 placeholder="*********"
+                value={passwordConfirm}
+                onChange={(e) => setPasswordConfirm(e.target.value)}
                 className="w-full py-2 pr-2 pl-2.5 text-left outline-none"
               />
             </div>
           </div>
-          <Button className="w-full">
+          <Button type="submit" className="w-full">
             <CiLogin />
-            Entrar
+            Criar
           </Button>
 
           <div className="bg-system-muted h-px w-full" />
@@ -94,7 +149,7 @@ export default function SignUp() {
               </Link>
             </span>
           </div>
-        </div>
+        </form>
       </div>
 
       <Footer />
