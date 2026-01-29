@@ -1,3 +1,5 @@
+"use client";
+
 import Logo from "@/assets/logo.svg";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -5,8 +7,36 @@ import { CiLogin } from "react-icons/ci";
 import { Footer } from "../../footer";
 import { Header } from "@/components/header";
 import Link from "next/link";
+import { FormEvent, useState } from "react";
+import { useRequest } from "alova/client";
+import { AuthUser, signInUser } from "@/services/auth-user";
+import { useRouter } from "next/navigation";
 
 export default function SignIn() {
+  const router = useRouter();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const { send: submitForm } = useRequest(
+    (data: AuthUser) => signInUser(data),
+    {
+      immediate: false,
+    },
+  );
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    try {
+      const res = await submitForm({ email, password });
+      localStorage.setItem("token", res.token);
+      router.push("/dashboard");
+    } catch (error) {
+      console.error("Erro ao fazer login:", error);
+    }
+  };
+
   return (
     <>
       <Header />
@@ -23,7 +53,10 @@ export default function SignIn() {
           </span>
         </div>
 
-        <div className="border-system-muted w-96 space-y-4.5 border bg-transparent p-7">
+        <form
+          onSubmit={handleSubmit}
+          className="border-system-muted w-96 space-y-4.5 border bg-transparent p-7"
+        >
           <div>
             <label htmlFor="email" className="font-medium">
               Email
@@ -33,6 +66,8 @@ export default function SignIn() {
                 id="email"
                 type="email"
                 placeholder="exemplo@email.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full py-2 pr-2 pl-2.5 text-left outline-none"
               />
             </div>
@@ -54,6 +89,8 @@ export default function SignIn() {
                 id="password"
                 type="password"
                 placeholder="*********"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 className="w-full py-2 pr-2 pl-2.5 text-left outline-none"
               />
             </div>
@@ -76,7 +113,7 @@ export default function SignIn() {
               </Link>
             </span>
           </div>
-        </div>
+        </form>
       </div>
 
       <Footer />

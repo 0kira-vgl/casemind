@@ -63,7 +63,6 @@ export default function SignUp() {
         </div>
 
         <form
-          // onSubmit={submitClintForm}
           onSubmit={submitClintForm}
           className="border-system-muted w-96 space-y-4.5 border bg-transparent p-7"
         >
@@ -91,8 +90,8 @@ export default function SignUp() {
                 required
                 id="email"
                 type="email"
-                value={email}
                 placeholder="exemplo@email.com"
+                value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full py-2 pr-2 pl-2.5 text-left outline-none"
               />
@@ -107,8 +106,8 @@ export default function SignUp() {
                 required
                 id="password"
                 type="password"
-                value={password}
                 placeholder="*********"
+                value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="w-full py-2 pr-2 pl-2.5 text-left outline-none"
               />
