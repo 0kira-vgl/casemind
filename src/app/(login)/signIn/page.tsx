@@ -9,7 +9,7 @@ import { Header } from "@/components/header";
 import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { useRequest } from "alova/client";
-import { AuthUser, signInUser } from "@/services/auth-user";
+import { AuthUser, signInUser } from "@/services/auth-user-service";
 import { useRouter } from "next/navigation";
 
 export default function SignIn() {

@@ -22,7 +22,7 @@ import {
 import { convertFileToBase64 } from "@/utils/convert-to-base64";
 import Link from "next/link";
 
-export default function NewArticle() {
+export default function EditArticle() {
   const { send } = useRequest(
     (data: ArticlesProps) => createNewArticles(data),
     { immediate: false },
@@ -87,11 +87,9 @@ export default function NewArticle() {
           <div className="bg-system-muted h-px w-full" />
         </div>
         <div className="py-9">
-          <h1 className="text-3xl font-medium lg:text-4xl">
-            Criar Novo Artigo
-          </h1>
+          <h1 className="text-3xl font-medium lg:text-4xl">Editar Artigo</h1>
           <p className="text-system-muted-color text-xl lg:text-2xl">
-            Compartilhe seu conhecimento com a comunidade
+            Atualize as informações do seu artigo
           </p>
         </div>
         <form

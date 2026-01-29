@@ -1,8 +1,10 @@
+"use client";
+
 import { GoArrowRight } from "react-icons/go";
 import { FeaturedArticleCard } from "@/components/featuredArticleCard";
 import Link from "next/link";
 import { useRequest } from "alova/client";
-import { ArticlesQuerys, getArticles } from "@/services/articles";
+import { ArticlesQuerys, getArticles } from "@/services/articles-service";
 
 export function FeaturedArticles() {
   const { data } = useRequest((input: ArticlesQuerys) => getArticles(input));

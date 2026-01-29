@@ -1,5 +1,6 @@
 import { alova } from "@/lib/alova";
 import { FeaturedArticleCardpProps } from "@/types/article-card";
+import { ArticlesProps } from "./new-article-service";
 
 export type ArticlesQuerys = {
   page?: string;
@@ -19,8 +20,12 @@ export const getArticles = (input: ArticlesQuerys) => {
   if (search !== undefined) params.append("search", search);
 
   const url = `posts?${params.toString()}`;
-  // console.log(url);
 
   const response = alova.Post<{ items: Array<FeaturedArticleCardpProps> }>(url);
+  return response;
+};
+
+export const editArticle = (input: ArticlesProps, id: string) => {
+  const response = alova.Put(`posts/${id}`, input);
   return response;
 };

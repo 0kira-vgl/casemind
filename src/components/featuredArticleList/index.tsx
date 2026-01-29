@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { CiClock2, CiHeart } from "react-icons/ci";
 import Lorem from "@/assets/lorem.png";

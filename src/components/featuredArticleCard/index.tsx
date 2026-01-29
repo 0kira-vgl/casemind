@@ -10,7 +10,6 @@ import { FeaturedArticleCardpProps } from "@/types/article-card";
 export function FeaturedArticleCard({
   title,
   description,
-  created_at,
 }: FeaturedArticleCardpProps) {
   return (
     <div className="border-system-border bg-system-card group hover:border-system-primary border p-5 transition-all duration-300 ease-out">
@@ -22,7 +21,7 @@ export function FeaturedArticleCard({
             Desenvolvimento web
           </span>
           <span className="text-system-muted-color flex items-center justify-center gap-1.5 text-xs font-medium">
-            <CiClock2 /> aaaa
+            <CiClock2 /> 4 out 2025
           </span>
         </div>
 

@@ -28,7 +28,9 @@ export function Home() {
           </Button>
 
           <Button className="border-system-muted hover:bg-system-primary border bg-transparent py-5 text-zinc-50 transition-all duration-300 ease-out hover:text-black">
-            Começar a Escrever
+            <Link href="newArticle" className="w-full">
+              Começar a Escrever
+            </Link>
           </Button>
         </div>
       </div>

@@ -3,7 +3,7 @@ import adapterFetch from "alova/fetch";
 import ReactHook from "alova/react";
 
 export const alova = createAlova({
-  baseURL: "https://dc52467075f8.ngrok-free.app/",
+  baseURL: "https://9b8c17cd76d3.ngrok-free.app",
   statesHook: ReactHook,
   requestAdapter: adapterFetch(),
   beforeRequest: (method) => {
